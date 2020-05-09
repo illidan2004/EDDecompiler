@@ -501,7 +501,7 @@ class ED6FCScenaInstructionTableEntry(InstructionTableEntry):
 
                 if buf < b' ':
                     if tmpstr != '':
-                        string.append(ScpString(SCPSTR_CODE_STRING, tmpstr.replace('\\', '\\\\')))
+                        string.append(ScpString(SCPSTR_CODE_STRING, tmpstr.replace('\\', r'\\').replace('\"', r'\"')))
                         tmpstr = ''
 
                     code = struct.unpack('<B', buf)[0]
